@@ -1,3 +1,14 @@
+http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/
+
+To install the fugitive plugin as a git submodule, take the following steps:
+
+cd ~/.vim
+mkdir ~/.vim/bundle
+git submodule add http://github.com/tpope/vim-fugitive.git bundle/fugitive
+git add .
+git commit -m "Install Fugitive.vim bundle as a submodule."
+
+
 synchronise to another machine:
 
 cd ~
