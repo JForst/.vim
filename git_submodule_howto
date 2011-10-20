@@ -17,3 +17,16 @@ latest version:
 cd ~/.vim/bundle/fugitive
 git pull origin master
 
+
+
+http://www.nils-haldenwang.de/frameworks-and-tools/git/how-to-ignore-changes-in-git-submodules
+How to ignore changes in git submodules 
+
+Just add a single line to it and be happy:
+
+[submodule "bundle/fugitive"]
+    path = bundle/fugitive
+    url = git://github.com/tpope/vim-fugitive.git
+    ignore = dirty
+
+
