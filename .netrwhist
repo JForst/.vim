@@ -1,9 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/home/forst/work/duck/lib/duck/Model/BL'
-let g:netrw_dirhist_2='/home/forst/work_svn/playground/Form/lib/Form'
-let g:netrw_dirhist_3='/home/forst/work_svn/playground/DBIx/create'
-let g:netrw_dirhist_4='/home/forst/work/duck/lib/duck/Model/BL'
-let g:netrw_dirhist_5='/home/forst/work/duck/lib/duck/Model'
-let g:netrw_dirhist_6='/home/forst/work/duck/lib/duck/Model/DBIC/Schema/Standort'
-let g:netrw_dirhist_7='/home/forst/work/duck/lib/duck/Model/DBIC/Schema/Farbe'
+let g:netrw_dirhist_cnt =0

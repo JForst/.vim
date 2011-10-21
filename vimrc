@@ -86,14 +86,17 @@ hi Statement cterm=bold ctermfg=Black
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 
-
 " jf definitionen
+colorscheme default
+"
+"Y kopiert bis zum Ende der Zeile
+map Y y$
+"
+"
 " Paste Mode On/Off 
 set pastetoggle=<F9> 
-colorscheme default
 
 let paste_mode = 0 " 0 = normal, 1 = paste 
-
 func! Paste_on_off() 
         if g:paste_mode == 0 
                 set paste 
@@ -133,3 +136,29 @@ else
 syntax on
 endif
 
+" perl
+filetype plugin indent on
+"
+" perltidy
+nnoremap ,pt :%!perltidy -q<cr> " only works in 'normal' mode
+vnoremap ,pt :!perltidy -q<cr> " only works in 'visual' mode
+"
+" ctags
+" suche Tags von . bis $HOME
+set tags=./tags;$HOME
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+" ctags automatisch nach Bufwrite aufrufen
+au BufWritePost *.pl,*.pm,*.wiki silent! !ctags -R &
+"
+"Taglist
+"Toggle on <F8>
+map <F8> :TlistToggle<cr>
+"
+function! OpenTlist()
+    let myfile = expand("%")
+    let myfiletype = expand("%:e")
+    if myfiletype == "pl" || myfiletype == "pm"
+        Tlist
+    end
+endfunction
+"au BufRead * call OpenTlist()
