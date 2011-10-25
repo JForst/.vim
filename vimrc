@@ -150,6 +150,8 @@ map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 " ctags automatisch nach Bufwrite aufrufen
 au BufWritePost *.pl,*.pm,*.wiki silent! !ctags -R &
 "
+"ctags 
+let tlist_vimwiki_settings = 'vimwiki;h:Headers'
 "Taglist
 "Toggle on <F8>
 map <F8> :TlistToggle<cr>
@@ -157,8 +159,31 @@ map <F8> :TlistToggle<cr>
 function! OpenTlist()
     let myfile = expand("%")
     let myfiletype = expand("%:e")
-    if myfiletype == "pl" || myfiletype == "pm"
+    if myfiletype == "pl" || myfiletype == "pm" || myfiletype == "wiki"
         Tlist
     end
 endfunction
 "au BufRead * call OpenTlist()
+"
+" cpan App:Ack
+" define Ex command "Ack" that searches using ack and displays the results
+" lexpr fills the location list and jumps to the first location (file)
+" lgete just fills the location list - no jumping
+
+" the function which will be executed by the Ack command
+function! Ack_Search(command)
+    lgete system("ack --type-set TYPE=.wiki " . a:command)        "call ack ... 
+                                            " including .wiki files
+    lopen                                   "open location list under current window
+                                            "- jumps to location list
+    wincmd k                                "jump back to previous window
+endfunction
+
+" definiton of the Ack command
+" -narags=+         arguments must be supplied, but any number are allowed
+" -complete=file    file name completion
+" <q-args>          quoted arguments for use in expressions
+
+command! -nargs=+ -complete=file Ack call Ack_Search(<q-args>)
+
+
