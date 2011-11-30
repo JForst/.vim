@@ -148,7 +148,7 @@ vnoremap ,pt :!perltidy -q<cr> " only works in 'visual' mode
 set tags=./tags;$HOME
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 " ctags automatisch nach Bufwrite aufrufen
-au BufWritePost *.pl,*.pm,*.wiki silent! !ctags -R &
+" better manually or after git commit " au BufWritePost *.pl,*.pm,*.wiki silent! !ctags -R &
 "
 "ctags 
 let tlist_vimwiki_settings = 'vimwiki;h:Headers'
