@@ -65,21 +65,9 @@ set esckeys
 :filetype on
 :filetype plugin on
 
-" syntaxhighlighting
-if has("terminfo")
-  set t_Co=16
-  set t_AB=[%?%p1%{8}%<%t%p1%{40}%+%e%p1%{92}%+%;%dm
-  set t_AF=[%?%p1%{8}%<%t%p1%{30}%+%e%p1%{82}%+%;%dm
-else
-  set t_Co=16
-  set t_Sf=[3%dm
-  set t_Sb=[4%dm
-endif
-
+set background=dark
 syntax on
 
-" Statements bold black
-hi Statement cterm=bold ctermfg=Black
 
 "pathogen for loading .vim/bundle plugins
 " filetype off 
@@ -87,7 +75,7 @@ call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 
 " jf definitionen
-colorscheme default
+colorscheme zenburn
 "
 "Y kopiert bis zum Ende der Zeile
 map Y y$
