@@ -65,9 +65,6 @@ set esckeys
 :filetype on
 :filetype plugin on
 
-set background=dark
-syntax on
-
 
 "pathogen for loading .vim/bundle plugins
 " filetype off 
@@ -75,6 +72,11 @@ call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 
 " jf definitionen
+" colorscheme elflord
+set background=dark
+syntax on
+
+let g:zenburn_high_Contrast=1
 colorscheme zenburn
 "
 "Y kopiert bis zum Ende der Zeile
